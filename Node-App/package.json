@@ -1,0 +1,17 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "This API is built for fetch rewards",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "uuid": "^10.0.0"
+  }
+}
