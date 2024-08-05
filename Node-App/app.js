@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const app=express();
 const PORT=8088;
 
+//using a map to store ids and points for fast retrevals
 const pointsMap=new Map();
 
 app.use(express.json());
@@ -18,6 +19,12 @@ app.post('/receipts/process',(req,res)=>{
     var id = convertDataToReceipt(data);
     res.status(200).send({
         'id':id
+    })
+})
+
+app.get('/',(req,res)=>{
+    res.status(200).send({
+        "Message from server":" Servre is running , hit the /receipts/process and /receipts/:id/points endpoints to test"
     })
 })
 
@@ -45,7 +52,6 @@ function convertDataToReceipt(data){
     points+=getPointsforDateAndTime(data.purchaseDate,data.purchaseTime);
 
     pointsMap.set(id,points);
-    console.log(pointsMap);
     return id;
 }
 function getPointsforDateAndTime(date,time){
